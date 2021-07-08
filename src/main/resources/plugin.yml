@@ -1,0 +1,20 @@
+main: io.github.tsspidermine.jefferytheplugin.App
+name: jefferytheplugin
+version: 1.2
+api-version: 1.17
+commands:
+  timealive:
+    description: Displays how long a player has been alive
+    usage: /timealive <player>
+    permission: jefferytheplugin.timealive
+  cam:
+    description: Toggles you between spectator and survival, without any room for cheating
+    usage: /cam
+    permission: jefferytheplugin.cam
+    permission-message: You do not have permission to use this command. Contact your server admin if you think this may be an issue.
+    aliases: camera
+permissions:
+  jefferytheplugin.timealive:
+    default: true
+  jefferytheplugin.cam:
+    default: true
