@@ -20,12 +20,15 @@ public class Cam implements CommandExecutor {
     List<String> toggled = new ArrayList<String>();
     Map<String, Location> playerLocations = new HashMap<String, Location>();
     Map<String, GameMode> playerGameModes = new HashMap<String, GameMode>();
-    
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
         if(sender instanceof Player){
             Player player = (Player) sender;
+            if(player.getFallDistance() > 0){
+                player.sendMessage("You cannot enter camera while falling!");
+                return true;
+            }
             if(toggled.contains(player.getName())){
                 player.sendMessage("Exiting camera mode!");
                 player.teleport(playerLocations.get(player.getName()));
